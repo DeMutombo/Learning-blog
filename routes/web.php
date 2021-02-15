@@ -12,3 +12,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 // Route::get('/post', [App\Http\Controllers\HomeController::class, 'show'])->name('post');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/post', [PostController::class, 'show'])->name('post');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
