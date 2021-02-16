@@ -1,8 +1,5 @@
 @extends('layouts.app')
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ce8d7ce722a8e4e6debc59a9b894f945847de2e
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -73,8 +70,4 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 4ce8d7ce722a8e4e6debc59a9b894f945847de2e
