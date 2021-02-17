@@ -12,4 +12,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 // Route::get('/post', [App\Http\Controllers\HomeController::class, 'show'])->name('post');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
+
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post');
