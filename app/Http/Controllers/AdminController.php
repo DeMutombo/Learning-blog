@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -27,8 +28,10 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        // $user_id = auth()->user()->id;
+        // $user = User::find($user_id);
+
+        $user = Auth::user();
 
         $posts = new Post();
         $posts->title = request('title');
@@ -47,8 +50,21 @@ class AdminController extends Controller
             $posts->post_image = $filename;
         }
 
+        // dd($posts);
+
         $user->posts()->save($posts);
 
         return redirect('/');
+    }
+
+    public function edit($post_id)
+    {
+        $post = Post::findOrFail($post_id);
+        return view('admin.edit')->with(['post' => $post]);
+    }
+
+    public function update()
+    {
+        return redirect(route('admin.index'));
     }
 }

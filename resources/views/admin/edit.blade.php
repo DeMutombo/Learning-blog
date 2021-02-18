@@ -1,21 +1,22 @@
 <x-admin-master>
     @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Create a Post</h1> 
+    <h1 class="h3 mb-4 text-gray-800">Update post</h1> 
     <div class="row">
         <div class="col-7">
-            <form method="post" action="{{ route('admin.store') }}" enctype="multipart/form-data">
+            <form method="post" action="/admin/{{ $post->id }}" enctype="multipart/form-data">
+                @method('PUT')
               @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Title</label>
-                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $post->title }}" >
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Post body</label>
-                    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="12"></textarea>
+                    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="12">{{ $post->body }}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Excert</label>
-                  <input type="text" name="exert" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="text" name="exert" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{  $post->slug   }}">
                 </div>
                 <div class="form-group">
                     <div class="input-group mb-3">
